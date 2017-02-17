@@ -20,7 +20,7 @@ def save_profile_image():
         file.save(os.path.join(url_arquivo, file_name))
         jsonify(result='ok'), 200
     except Exception as e:
-        return jsonify(result='fail'), 400
+        return jsonify(result=str(e)), 400
 
 
 if __name__=='__main__':
