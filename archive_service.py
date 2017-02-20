@@ -9,11 +9,9 @@ app = Flask("archive-service")
 @app.route('/save_profile_image', methods=['POST'])
 def save_profile_image():
     try:
-        print('real', request.files)
         file = request.files.get('file')
         old_file_path = request.form.get('old_file_path')
         file_name = file.filename
-        print('old real', old_file_path)
 
         if old_file_path:
             os.remove(settings.MEDIA_ROOT + '/' + old_file_path)
