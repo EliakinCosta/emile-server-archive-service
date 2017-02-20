@@ -10,8 +10,8 @@ app = Flask("archive-service")
 def save_profile_image():
     try:
         print('real', request.files)
-        file = request.files['file']
-        old_file_path = request.form['old_file_path']
+        file = request.files.get('file')
+        old_file_path = request.form.get('old_file_path')
         file_name = file.filename
         print('old real', old_file_path)
 
