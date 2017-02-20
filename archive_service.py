@@ -11,9 +11,9 @@ def save_profile_image():
     try:
         print('real', request.files)
         file = request.files['file']
-        print(file)
         old_file_path = request.form['old_file_path']
         file_name = file.filename
+        print('old real', old_file_path)
 
         if old_file_path:
             os.remove(settings.MEDIA_ROOT + '/' + old_file_path)
