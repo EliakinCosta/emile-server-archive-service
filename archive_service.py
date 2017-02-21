@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, request, send_file
 import settings
 import os
 
@@ -30,7 +30,7 @@ def save_profile_image():
 def download_file(relative_path):
     directory, filename = str(relative_path).rsplit('/', maxsplit=1)
     archive_url = settings.MEDIA_ROOT + '/' + directory
-    return send_from_directory(archive_url, filename, as_attachment=True)
+    return send_file(archive_url + '/' + filename, mimetype='image/jpeg')
 
 
 if __name__=='__main__':
