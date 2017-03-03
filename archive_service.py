@@ -31,7 +31,7 @@ def download_file(relative_path):
     directory, filename = str(relative_path).rsplit('/', maxsplit=1)
     format_file = str(filename).split('.')[1]
     archive_url = settings.MEDIA_ROOT + '/' + directory
-    return send_file(archive_url + '/' + filename, mimetype='image/{0}}'.format(format_file))
+    return send_file(archive_url + '/' + filename, mimetype='image/jpeg')
 
 
 if __name__=='__main__':
