@@ -29,8 +29,9 @@ def save_profile_image():
 @app.route('/files/<path:relative_path>')
 def download_file(relative_path):
     directory, filename = str(relative_path).rsplit('/', maxsplit=1)
+    format_file = str(filename).split('.')[1]
     archive_url = settings.MEDIA_ROOT + '/' + directory
-    return send_file(archive_url + '/' + filename, mimetype='image/jpeg')
+    return send_file(archive_url + '/' + filename, mimetype='image/{0}}'.format(format_file))
 
 
 if __name__=='__main__':
